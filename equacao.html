@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Quadratic Equation</title>
+	<link rel="icon" href="delta.png">
+</head>
+
+<body> 
+	<style>
+		{ 
+		margin: 0;
+		padding: 0;
+		}
+
+	body {
+		background: white ;
+		position:relative;
+		background-image: url("emc.jpg");
+		margin:0px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		}
+
+	.head {
+		width: 100%;
+		height: 150px;
+		}
+
+	h2 {
+		color: white;
+		white-space: nowrap;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 3em;
+		font-family: sans-serif;
+		letter-spacing: 0.1em;
+		transition: 0.3s;
+		text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+		1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+		5px 13px 15px black;
+		cursor: default;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		}
+
+	h2:hover {
+		transition: 0.3s;
+		transform: scale(1.1)translate(-50%, -50%);
+		text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+		1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+		1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+		cursor: default;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		}
+
+	.bo {
+		margin: 0 auto;
+		height: 100px;
+		}
+
+	.bod {
+		border-radius: 3px;
+		margin: 0 auto;
+		width: 75%;
+		height: 210px;
+		background:-webkit-linear-gradient(-110deg, rgb(78, 62, 62) 0%, rgb(95, 100, 95) 80%);
+		background:-o-linear-gradient(-110deg, rgb(78, 62, 62) 0%, rgb(95, 100, 95) 80%);
+		background:-moz-linear-gradient(-110deg, rgb(78, 62, 62) 0%, rgb(95, 100, 95) 80%);
+		background:linear-gradient(-110deg, rgb(78, 62, 62) 0%, rgb(95, 100, 95) 80%);
+		-webkit-box-shadow:0px 0px 10px 6px #3e3a3a ;
+		-moz-box-shadow:0px 0px 10px 6px #3e3a3a ;
+		box-shadow:0px 0px 10px 6px #3e3a3a ;
+		}
+
+	.mid {
+		border-radius: 3px;
+		margin: 0 auto;
+		width: 75%;
+		height: 825px;
+		background: white;
+		-webkit-box-shadow:0px 0px 20px 5px #3e3a3a ;
+		-moz-box-shadow:0px 0px 20px 5px #3e3a3a ;
+		box-shadow:0px 0px 20px 5px #3e3a3a ;
+		}
+
+	h1 {
+		font-family: "arial";
+		font-size: 40px;
+		color: white;
+		line-height: 1px;
+		cursor: default;
+		word-spacing: 2pt;
+		text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				0px 8px 13px rgba(0,0,0,0.1),
+				0px 18px 23px rgba(0,0,0,0.1);
+		}
+
+	input[type=text] {
+		border-radius: 10px;
+		border: 2px solid rgba(255,255,255,.5);
+		outline:none;
+		text-align:right;
+		background:white;
+		width:70px;
+		height:50px;
+		color: black;
+		font-size: 30px;
+		line-height: 3px;
+		letter-spacing: 0.6px;
+		word-spacing: 1.2px;
+		padding-left: 15px;
+		padding-right: 5px;
+		padding-top: 10px;
+		}
+
+	input[type=text].rdo {
+		outline:none;
+		text-align:center;
+		background:white;
+		width:150px;
+		height:75px;
+		color: red;
+		font-size: 30px;
+		line-height: 3px;
+		letter-spacing: 0.6px;
+		word-spacing: 1.2px;
+		border: none;
+		padding-left: 0px;
+		padding-bottom: 30px;
+		cursor: default;
+		}
+			
+	h3 {
+		font-family: "arial";
+		font-size: 30px;
+		color: black;
+		line-height: 1px;
+		cursor: default;
+		word-spacing: 2pt;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		color: rgba(0,0,0,0.6);
+		text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+		}
+
+	.btn-hover {
+		width: 200px;
+		font-size: 16px;
+		font-weight: 600;
+		color: #fff;
+		font-family: Arial;
+		cursor: pointer;
+		margin: 20px;
+		height: 55px;
+		text-align:center;
+		border: none;
+		background-size: 300% 100%;
+		border-radius: 50px;
+		moz-transition: all .4s ease-in-out;
+		-o-transition: all .4s ease-in-out;
+		-webkit-transition: all .4s ease-in-out;
+		transition: all .4s ease-in-out;
+		}
+
+	.btn-hover:hover {
+		background-position: 100% 0;
+		moz-transition: all .4s ease-in-out;
+		-o-transition: all .4s ease-in-out;
+		-webkit-transition: all .4s ease-in-out;
+		transition: all .4s ease-in-out;
+		}
+
+	.btn-hover:focus {
+		outline: none;
+		}
+
+	.btn-hover.color-2 {
+		background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+		box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+		}
+
+	hr {
+		border: 0;
+		margin: 1.35em auto;
+		max-width: 100%;
+		background-position: 50%;
+		box-sizing: border-box;
+		}
+
+	.accessory {
+		height: 6px;
+		background-image: radial-gradient(
+		closest-side,
+		hsla(0, 0%, 50%, 1.0),
+		hsla(0, 0%, 50%, 0) 100%);
+		position: relative;
+		}
+
+	::-webkit-input-placeholder {
+		color: #000;
+		opacity: 0.5;
+		-webkit-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:-moz-placeholder {
+		color: #000;
+		opacity: 0.5;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	::-moz-placeholder {
+		color: #000;
+		opacity: 0.5;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:-ms-input-placeholder {  
+		color: #000;
+		opacity: 0.5;
+		-ms-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:hover::-webkit-input-placeholder {
+		opacity: 0.75;
+		-webkit-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+	:hover:-moz-placeholder {
+		opacity: 0.75;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:hover::-moz-placeholder {
+		opacity: 0.75;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+	:hover:-ms-input-placeholder {  
+		opacity: 0.75;
+		-ms-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:focus::-webkit-input-placeholder {
+		opacity: 0;
+		-webkit-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:focus:-moz-placeholder {
+		opacity: 0;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:focus::-moz-placeholder {
+		opacity: 0;
+		-moz-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+
+	:focus:-ms-input-placeholder {  
+		opacity: 0;
+		-ms-transition: opacity 0.35s ease-in-out;
+		transition: opacity 0.35s ease-in-out;
+		}
+</style>
+<body>
+	<div class="head">
+		<center><br><br>
+			<h2>Online Quadratic Equation</h2>
+		</center>
+	</div>
+	
+	<div class="bod">
+		<center>
+			<br><br>
+				<form name="entrada">
+				<h1> ax² + bx + c </h1>
+			<br> &nbsp
+				<input type="text" name="a1" size=5 maxlength="5" type="text" placeholder="a" >&nbsp &nbsp &nbsp 
+				<input type="text" name="b1" size=5 maxlength="5" placeholder="b" >&nbsp &nbsp &nbsp 
+				<input type="text" name="c1" size=5 maxlength=5 placeholder="c" >
+			<br><br>
+		</center>
+	</div>
+
+	<div class="mid">
+		<br><br><hr class="accessory">
+		<center>
+			<h3>Delta</h3><input type="text" name="textdelta" size="12" maxlength="5" readonly class="rdo">
+			<hr class="accessory">
+			<h3>X¹</h3><input type="text" name="textx1" size="12" maxlength="12" readonly class="rdo">
+			<br><hr class="accessory">
+			<h3> X²</h3><input type="text" name="textx2" size="12" maxlength="12" readonly class="rdo">
+			<br><br><br><br><br>
+
+			<input type=button name="calcular" value="Calculate" onclick="equacao(a1.value,b1.value,c1.value)" class="btn-hover color-2"> 
+			<input type=reset name="limpar" value="Clear" class="btn-hover color-2"> 
+		</center>
+	</div>
+</form>
+<div class="bo">
+</div>
+</body> 
+</html>
+<script> 
+	    function equacao (a,b,c) 
+	       {
+	          d=(b*b)-4*a*c
+	          entrada.textdelta.value=d
+	          if (d<0)
+	             alert ("N�o existem ra�zes")
+	          if (d==0)
+	             {
+	                x1=(-b)/(2*a)
+	                entrada.textx1.value=x1.toFixed(2)
+	             }
+	           if (d>0)
+	             {
+	                x1=((-b)+Math.sqrt(d))/(2*a)
+	                x2=((-b)-Math.sqrt(d))/(2*a)
+	                entrada.textx1.value=x1.toFixed(1)
+	                entrada.textx2.value=x2.toFixed(1)
+	             } 
+	       } 
+	</script> 
